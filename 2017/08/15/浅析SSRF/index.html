@@ -102,7 +102,7 @@
 <meta property="og:description" content="SSRF概述SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/08/15/浅析SSRF/p1.png">
-<meta property="og:updated_time" content="2017-08-15T15:05:29.584Z">
+<meta property="og:updated_time" content="2017-08-15T16:31:56.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析SSRF">
 <meta name="twitter:description" content="SSRF概述SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。">
@@ -336,12 +336,11 @@
 
       
         <h1 id="SSRF概述"><a href="#SSRF概述" class="headerlink" title="SSRF概述"></a>SSRF概述</h1><p>SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。<br><a id="more"></a><br>SSRF形成的原因大都是由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。比如从指定URL地址获取网页文本内容，加载指定地址的图片，下载等等。</p>
-<p>#主要实现的攻击：</p>
-<blockquote><p>1.可以对外网、服务器所在内网、本地进行端口扫描，获取一些服务的banner信息;<br>2.攻击运行在内网或本地的应用程序（比如溢出）;<br>3.对内网web应用进行指纹识别，通过访问默认文件实现;<br>4.攻击内外网的web应用，主要是使用get参数就可以实现的攻击（比如struts2，sqli等）;<br>5.利用file协议读取本地文件等。</p>
+<h1 id="主要实现的攻击："><a href="#主要实现的攻击：" class="headerlink" title="主要实现的攻击："></a>主要实现的攻击：</h1><blockquote><p>1.可以对外网、服务器所在内网、本地进行端口扫描，获取一些服务的banner信息;<br>2.攻击运行在内网或本地的应用程序（比如溢出）;<br>3.对内网web应用进行指纹识别，通过访问默认文件实现;<br>4.攻击内外网的web应用，主要是使用get参数就可以实现的攻击（比如struts2，sqli等）;<br>5.利用file协议读取本地文件等。</p>
 </blockquote>
 <h1 id="关键字搜查"><a href="#关键字搜查" class="headerlink" title="关键字搜查"></a>关键字搜查</h1><blockquote><p>share<br>wap<br>url<br>link<br>src<br>source<br>target<br>u<br>3g<br>display<br>sourceURl<br>imageURL<br>domain</p>
 </blockquote>
-<p>#漏洞验证<br>排除法一：<br>你可以直接右键图片，在新窗口打开图片，如果是浏览器上URL地址栏是<a href="http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。" target="_blank" rel="external">http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。</a></p>
+<h1 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h1><p>排除法一：<br>你可以直接右键图片，在新窗口打开图片，如果是浏览器上URL地址栏是<a href="http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。" target="_blank" rel="external">http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。</a></p>
 <p>排除法二：<br>你可以使用burpsuite等抓包工具来判断是否不是SSRF，首先SSRF是由服务端发起的请求，因此在加载图片的时候，是由服务端发起的，所以在我们本地浏览器的请求中就不应该存在图片的请求，在此例子中，如果刷新当前页面，有如下请求，则可判断不是SSRF。<br><img src="p1.png" alt="验证"></p>
 
       
@@ -493,7 +492,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSRF概述"><span class="nav-number">1.</span> <span class="nav-text">SSRF概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键字搜查"><span class="nav-number">2.</span> <span class="nav-text">关键字搜查</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSRF概述"><span class="nav-number">1.</span> <span class="nav-text">SSRF概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要实现的攻击："><span class="nav-number">2.</span> <span class="nav-text">主要实现的攻击：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键字搜查"><span class="nav-number">3.</span> <span class="nav-text">关键字搜查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#漏洞验证"><span class="nav-number">4.</span> <span class="nav-text">漏洞验证</span></a></li></ol></div>
             
 
           </div>
