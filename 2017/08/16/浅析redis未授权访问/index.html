@@ -103,7 +103,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/08/16/浅析redis未授权访问/p1.png">
 <meta property="og:image" content="http://yoursite.com/2017/08/16/浅析redis未授权访问/p2.png">
-<meta property="og:updated_time" content="2017-08-16T09:39:52.451Z">
+<meta property="og:updated_time" content="2017-08-16T09:59:49.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析redis未授权访问">
 <meta name="twitter:description" content="0x01 漏洞描述Redis在默认情况会将服务绑定在0.0.0.0:6379上，从而将服务暴露在公网环境下，如果在没有开启安全认证的情况下，可以导致任意用户未授权访问Redis服务器并Redis进行读写操作。攻击者在未授权访问Redis服务器时可以通过上传公钥的方法将自己的公钥上传到Redis服务器上，达到免密登陆的效果。">
@@ -346,7 +346,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 192.168.0.160</div></pre></td></tr></table></figure>
 <p>查看redis版本信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">192.168.0.160:6379&gt;info</div></pre></td></tr></table></figure><br><img src="p2.png" alt="p2"></p>
 <h1 id="0x04-攻击方法"><a href="#0x04-攻击方法" class="headerlink" title="0x04 攻击方法"></a>0x04 攻击方法</h1><p>1.利用SSh免密登录获得shell：</p>
-<p>如果是想要使用ssh免密登陆方法来获得shell的情况下，首先Redis服务器的root用户目录下需要有.ssh文件，再就是配置文件中的 PermitRootLogin 的值需要改为 yes。</p>
+<p>如果是想要使用ssh免密登陆方法来获得shell的情况下，首先Redis服务器的root用户目录下需要有.ssh文件，用root用户启动redis服务。</p>
 <p>首先在本地生成一对密钥：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -yx rsa</div></pre></td></tr></table></figure>
 <p>然后redis执行命令：</p>
