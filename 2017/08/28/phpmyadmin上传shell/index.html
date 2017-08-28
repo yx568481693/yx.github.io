@@ -94,17 +94,22 @@
 
 
 
-<meta name="description" content="渗透测试，代码审计，CTF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="All tags">
-<meta property="og:url" content="https://yx568481693.github.io/tags/index.html">
+<meta name="description" content="1.有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phpmyadmin上传shell">
+<meta property="og:url" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/index.html">
 <meta property="og:site_name" content="topyx">
-<meta property="og:description" content="渗透测试，代码审计，CTF">
+<meta property="og:description" content="1.有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-07T12:04:44.769Z">
+<meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p1.png">
+<meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p2.png">
+<meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p3.png">
+<meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p4.png">
+<meta property="og:updated_time" content="2017-08-28T08:38:01.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="All tags">
-<meta name="twitter:description" content="渗透测试，代码审计，CTF">
+<meta name="twitter:title" content="phpmyadmin上传shell">
+<meta name="twitter:description" content="1.有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
+<meta name="twitter:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p1.png">
 
 
 
@@ -133,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://yx568481693.github.io/tags/"/>
+  <link rel="canonical" href="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/"/>
 
 
 
 
 
-  <title>All tags | topyx</title>
+  <title>phpmyadmin上传shell | topyx</title>
   
 
 
@@ -254,40 +259,146 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="topyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="topyx">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">All tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                暂无标签
-            </div>
-            <div class="tag-cloud-tags">
+          <h1 class="post-title" itemprop="name headline">phpmyadmin上传shell</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
               
-            </div>
-          </div>
-        
-      </div>
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T01:10:20-07:00">
+                2017-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="1-有phpmyadmin的情况下"><a href="#1-有phpmyadmin的情况下" class="headerlink" title="1.有phpmyadmin的情况下"></a>1.有phpmyadmin的情况下</h1><p>假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。<br>该方法必须是mysql root权限下才能使用。<br><a id="more"></a></p>
+<h1 id="2-具体流程"><a href="#2-具体流程" class="headerlink" title="2.具体流程"></a>2.具体流程</h1><p>登录phpmyadmin后，查看全局变量：<br>找到 general log file<br><img src="p1.png" alt="p1"></p>
+<p>这里是存储了每一个sql语句执行的日志（包含SQL语句本身）</p>
+<p>但是general log变量必须是ON状态，代表启用。</p>
+<p>此时我们把general log开启为ON，然后再去更改general log file的地址为我们的webshell绝对路径。</p>
+<p><img src="p2.png" alt="p2"></p>
+<p>在每一次更改general log file的时候mysql都会判断日志文件是否存在，如果不存在则会自动创建。</p>
+<p><img src="p3.png" alt="p3"></p>
+<p><img src="p4.png" alt="p4"></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/16/浅析redis未授权访问/" rel="next" title="浅析redis未授权访问">
+                <i class="fa fa-chevron-left"></i> 浅析redis未授权访问
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -296,6 +407,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -316,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/Author.jpg"
@@ -379,6 +505,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-有phpmyadmin的情况下"><span class="nav-number">1.</span> <span class="nav-text">1.有phpmyadmin的情况下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-具体流程"><span class="nav-number">2.</span> <span class="nav-text">2.具体流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -502,10 +644,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -531,6 +673,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141690"></script>
+      <!-- UY END -->
     
   
 
