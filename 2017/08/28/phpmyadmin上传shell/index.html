@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="1.有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
+<meta name="description" content="0x01 有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="phpmyadmin上传shell">
 <meta property="og:url" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/index.html">
 <meta property="og:site_name" content="topyx">
-<meta property="og:description" content="1.有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
+<meta property="og:description" content="0x01 有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p1.png">
 <meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p2.png">
 <meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p3.png">
 <meta property="og:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p4.png">
-<meta property="og:updated_time" content="2017-08-28T08:38:01.289Z">
+<meta property="og:updated_time" content="2017-08-28T08:54:52.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="phpmyadmin上传shell">
-<meta name="twitter:description" content="1.有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
+<meta name="twitter:description" content="0x01 有phpmyadmin的情况下假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。该方法必须是mysql root权限下才能使用。">
 <meta name="twitter:image" content="https://yx568481693.github.io/2017/08/28/phpmyadmin上传shell/p1.png">
 
 
@@ -338,8 +338,8 @@
       
 
       
-        <h1 id="1-有phpmyadmin的情况下"><a href="#1-有phpmyadmin的情况下" class="headerlink" title="1.有phpmyadmin的情况下"></a>1.有phpmyadmin的情况下</h1><p>假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。<br>该方法必须是mysql root权限下才能使用。<br><a id="more"></a></p>
-<h1 id="2-具体流程"><a href="#2-具体流程" class="headerlink" title="2.具体流程"></a>2.具体流程</h1><p>登录phpmyadmin后，查看全局变量：<br>找到 general log file<br><img src="p1.png" alt="p1"></p>
+        <h1 id="0x01-有phpmyadmin的情况下"><a href="#0x01-有phpmyadmin的情况下" class="headerlink" title="0x01 有phpmyadmin的情况下"></a>0x01 有phpmyadmin的情况下</h1><p>假如目前into outfile已经被禁用，并且WAF也会在写入文件的时候拦截。<br>该方法必须是mysql root权限下才能使用。<br><a id="more"></a></p>
+<h1 id="0x02-具体流程"><a href="#0x02-具体流程" class="headerlink" title="0x02 具体流程"></a>0x02 具体流程</h1><p>登录phpmyadmin后，查看全局变量：<br>找到 general log file<br><img src="p1.png" alt="p1"></p>
 <p>这里是存储了每一个sql语句执行的日志（包含SQL语句本身）</p>
 <p>但是general log变量必须是ON状态，代表启用。</p>
 <p>此时我们把general log开启为ON，然后再去更改general log file的地址为我们的webshell绝对路径。</p>
@@ -515,7 +515,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-有phpmyadmin的情况下"><span class="nav-number">1.</span> <span class="nav-text">1.有phpmyadmin的情况下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-具体流程"><span class="nav-number">2.</span> <span class="nav-text">2.具体流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-有phpmyadmin的情况下"><span class="nav-number">1.</span> <span class="nav-text">0x01 有phpmyadmin的情况下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-具体流程"><span class="nav-number">2.</span> <span class="nav-text">0x02 具体流程</span></a></li></ol></div>
             
 
           </div>
