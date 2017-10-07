@@ -94,19 +94,16 @@
 
 
 
-<meta name="description" content="0x01 SSRF概述SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浅析SSRF">
-<meta property="og:url" content="https://yx568481693.github.io/2017/08/15/浅析SSRF/index.html">
+<meta name="description" content="渗透测试，代码审计，CTF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="topyx">
+<meta property="og:url" content="https://yx568481693.github.io/archives/2017/10/index.html">
 <meta property="og:site_name" content="topyx">
-<meta property="og:description" content="0x01 SSRF概述SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。">
+<meta property="og:description" content="渗透测试，代码审计，CTF">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://yx568481693.github.io/2017/08/15/浅析SSRF/p1.png">
-<meta property="og:updated_time" content="2017-08-16T09:41:26.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅析SSRF">
-<meta name="twitter:description" content="0x01 SSRF概述SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。">
-<meta name="twitter:image" content="https://yx568481693.github.io/2017/08/15/浅析SSRF/p1.png">
+<meta name="twitter:title" content="topyx">
+<meta name="twitter:description" content="渗透测试，代码审计，CTF">
 
 
 
@@ -135,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://yx568481693.github.io/2017/08/15/浅析SSRF/"/>
+  <link rel="canonical" href="https://yx568481693.github.io/archives/2017/10/"/>
 
 
 
 
 
-  <title>浅析SSRF | topyx</title>
+  <title>归档 | topyx</title>
   
 
 
@@ -160,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,151 +251,74 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 5 篇日志。 继续努力。
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yx568481693.github.io/2017/08/15/浅析SSRF/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="topyx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/Author.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="topyx">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">浅析SSRF</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2017/10/06/php代码审计（一）/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">php代码审计（一）</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T07:25:13-07:00">
-                2017-08-15
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-10-06T05:03:38-07:00"
+              content="2017-10-06" >
+          10-06
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="0x01-SSRF概述"><a href="#0x01-SSRF概述" class="headerlink" title="0x01 SSRF概述"></a>0x01 SSRF概述</h1><p>SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF攻击的目标是从外网无法访问的内部系统。<br><a id="more"></a><br>SSRF形成的原因大都是由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。比如从指定URL地址获取网页文本内容，加载指定地址的图片，下载等等。</p>
-<h1 id="0x02-主要实现的攻击："><a href="#0x02-主要实现的攻击：" class="headerlink" title="0x02 主要实现的攻击："></a>0x02 主要实现的攻击：</h1><blockquote><p>1.可以对外网、服务器所在内网、本地进行端口扫描，获取一些服务的banner信息;<br>2.攻击运行在内网或本地的应用程序（比如溢出）;<br>3.对内网web应用进行指纹识别，通过访问默认文件实现;<br>4.攻击内外网的web应用，主要是使用get参数就可以实现的攻击（比如struts2，sqli等）;<br>5.利用file协议读取本地文件等。</p>
-</blockquote>
-<h1 id="0x03-关键字搜查"><a href="#0x03-关键字搜查" class="headerlink" title="0x03 关键字搜查"></a>0x03 关键字搜查</h1><blockquote><p>share<br>wap<br>url<br>link<br>src<br>source<br>target<br>u<br>3g<br>display<br>sourceURl<br>imageURL<br>domain</p>
-</blockquote>
-<h1 id="0x04-漏洞验证"><a href="#0x04-漏洞验证" class="headerlink" title="0x04 漏洞验证"></a>0x04 漏洞验证</h1><p>排除法一：<br>你可以直接右键图片，在新窗口打开图片，如果是浏览器上URL地址栏是<a href="http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。" target="_blank" rel="external">http://www.baidu.com/img/bd_logo1.png，说明不存在SSRF漏洞。</a></p>
-<p>排除法二：<br>你可以使用burpsuite等抓包工具来判断是否不是SSRF，首先SSRF是由服务端发起的请求，因此在加载图片的时候，是由服务端发起的，所以在我们本地浏览器的请求中就不应该存在图片的请求，在此例子中，如果刷新当前页面，有如下请求，则可判断不是SSRF。<br><img src="p1.png" alt="验证"></p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/08/07/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/16/浅析redis未授权访问/" rel="prev" title="浅析redis未授权访问">
-                浅析redis未授权访问 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -406,12 +326,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="uyan_frame"></div>
-    
-  </div>
-
 
         </div>
         
@@ -432,17 +346,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/Author.jpg"
@@ -504,22 +409,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-SSRF概述"><span class="nav-number">1.</span> <span class="nav-text">0x01 SSRF概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-主要实现的攻击："><span class="nav-number">2.</span> <span class="nav-text">0x02 主要实现的攻击：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-关键字搜查"><span class="nav-number">3.</span> <span class="nav-text">0x03 关键字搜查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-漏洞验证"><span class="nav-number">4.</span> <span class="nav-text">0x04 漏洞验证</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -643,9 +532,11 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
@@ -672,10 +563,6 @@
   
     
 
-    
-      <!-- UY BEGIN -->
-      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141690"></script>
-      <!-- UY END -->
     
   
 
