@@ -94,16 +94,24 @@
 
 
 
-<meta name="description" content="渗透测试，代码审计，CTF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="topyx">
-<meta property="og:url" content="https://yx568481693.github.io/archives/2017/index.html">
+<meta name="description" content="0x01 通过into outfile写入webshell在MySQL中，存在一个称为secure_file_priv的全局系统变量。 该变量用于限制数据的导入和导出操作，例如SELECT … INTO OUTFILE语句和LOAD_FILE() 如果secure_file_priv变量为空那么直接可以使用函数,如果为null是不能使用。可以通过show variables like ‘%secu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GetShell的几种姿势">
+<meta property="og:url" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/index.html">
 <meta property="og:site_name" content="topyx">
-<meta property="og:description" content="渗透测试，代码审计，CTF">
+<meta property="og:description" content="0x01 通过into outfile写入webshell在MySQL中，存在一个称为secure_file_priv的全局系统变量。 该变量用于限制数据的导入和导出操作，例如SELECT … INTO OUTFILE语句和LOAD_FILE() 如果secure_file_priv变量为空那么直接可以使用函数,如果为null是不能使用。可以通过show variables like ‘%secu">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e1.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e2.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e3.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e4.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e5.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e6.png">
+<meta property="og:updated_time" content="2018-03-04T05:49:41.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="topyx">
-<meta name="twitter:description" content="渗透测试，代码审计，CTF">
+<meta name="twitter:title" content="GetShell的几种姿势">
+<meta name="twitter:description" content="0x01 通过into outfile写入webshell在MySQL中，存在一个称为secure_file_priv的全局系统变量。 该变量用于限制数据的导入和导出操作，例如SELECT … INTO OUTFILE语句和LOAD_FILE() 如果secure_file_priv变量为空那么直接可以使用函数,如果为null是不能使用。可以通过show variables like ‘%secu">
+<meta name="twitter:image" content="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/e1.png">
 
 
 
@@ -132,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="https://yx568481693.github.io/archives/2017/"/>
+  <link rel="canonical" href="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/"/>
 
 
 
 
 
-  <title>归档 | topyx</title>
+  <title>GetShell的几种姿势 | topyx</title>
   
 
 
@@ -157,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,259 +259,149 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yx568481693.github.io/2018/03/02/GetShell的几种姿势/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="topyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="topyx">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">GetShell的几种姿势</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T21:47:01-08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 7 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/25/linuxSUID提权/" itemprop="url">
-              
-                <span itemprop="name">linuxSUID提权</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-25T02:33:13-08:00"
-              content="2017-11-25" >
-          11-25
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/06/php代码审计（一）/" itemprop="url">
-              
-                <span itemprop="name">php代码审计（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-06T05:03:38-07:00"
-              content="2017-10-06" >
-          10-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/28/phpmyadmin上传shell/" itemprop="url">
-              
-                <span itemprop="name">phpmyadmin上传shell</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-28T01:10:20-07:00"
-              content="2017-08-28" >
-          08-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/16/浅析redis未授权访问/" itemprop="url">
-              
-                <span itemprop="name">浅析redis未授权访问</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-16T01:41:44-07:00"
-              content="2017-08-16" >
-          08-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <h1 id="0x01-通过into-outfile写入webshell"><a href="#0x01-通过into-outfile写入webshell" class="headerlink" title="0x01 通过into outfile写入webshell"></a>0x01 通过into outfile写入webshell</h1><p>在MySQL中，存在一个称为secure_file_priv的全局系统变量。 该变量用于限制数据的导入和导出操作，例如SELECT … INTO OUTFILE语句和LOAD_FILE() 如果secure_file_priv变量为空那么直接可以使用函数,如果为null是不能使用。可以通过show variables like ‘%secure%’来进行查看:<br><a id="more"></a><br><img src="e1.png" alt="p1"></p>
+<p>通过这个命令可以知道文件可以写入的目录在 E:\PHPstudy\PHPTutorial\WWW\目录下，但由于之恶是windows系统要将‘\’换成‘/’才能执行命令。</p>
+<p><img src="e2.png" alt="p2"></p>
+<p>命令执行成功，然后在根目录进行查看</p>
+<p><img src="e3.png" alt="p3"></p>
+<h1 id="0x02-通过远程命令执行写入webshell"><a href="#0x02-通过远程命令执行写入webshell" class="headerlink" title="0x02 通过远程命令执行写入webshell"></a>0x02 通过远程命令执行写入webshell</h1><p>首先看一下具有远程命令执行的代码<br><img src="e4.png" alt="p4"></p>
+<p>其中的data参数存在远程命令执行，我们可以使用?data=phpinfo()来测试漏洞</p>
+<p><img src="e5.png" alt="p5"></p>
+<p>成功执行phpinfo命令，这时候我们可以直接在data参数后面写入一句话木马“?data=${@eval($_POST[x])}”,然后我们使用中国菜刀或者Cknife来连接（ps:antsword无法连接，可能与他的执行方式有关），图片使用Cknife连接<br><img src="e6.png" alt="p6"></p>
+<h1 id="0x03-未完待续"><a href="#0x03-未完待续" class="headerlink" title="0x03 未完待续"></a>0x03 未完待续</h1>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/15/浅析SSRF/" itemprop="url">
-              
-                <span itemprop="name">浅析SSRF</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-15T07:25:13-07:00"
-              content="2017-08-15" >
-          08-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/07/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-07T04:50:16-07:00"
-              content="2017-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/06/php代码审计（一）/" rel="next" title="php代码审计（一）">
+                <i class="fa fa-chevron-left"></i> php代码审计（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -511,6 +409,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -531,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/Author.jpg"
@@ -547,7 +460,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -594,6 +507,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-通过into-outfile写入webshell"><span class="nav-number">1.</span> <span class="nav-text">0x01 通过into outfile写入webshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-通过远程命令执行写入webshell"><span class="nav-number">2.</span> <span class="nav-text">0x02 通过远程命令执行写入webshell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-未完待续"><span class="nav-number">3.</span> <span class="nav-text">0x03 未完待续</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -717,11 +646,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
@@ -748,6 +675,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2141690"></script>
+      <!-- UY END -->
     
   
 
