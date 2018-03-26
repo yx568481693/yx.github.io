@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="0x01 前言遇到了一个关于提权的题目，一开始毫无思路，在大佬的提示下知道了使用SUID进行提权操作">
+<meta name="description" content="0x01 前言因为使用SS有时候科学上网还是速度很慢，从大佬处了解到一个神器kcptun，kcptun是一个使用可信UDP来加速TCP传输速度的网络软件。 我们知道TCP协议是可信的数据流传输协议。简单来说，如果数据传输过程中发生了丢包，TCP协议会重新发送相应数据包，如果数据包到达顺序与发送顺序不一致，TCP协议会进行数据包重组，即：TCP协议可以通过控制帧来保证数据流的传输顺序和正确性。但TC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linuxSUID提权">
-<meta property="og:url" content="https://yx568481693.github.io/2017/11/25/linuxSUID提权/index.html">
+<meta property="og:title" content="Ubuntu下安装Kcptun">
+<meta property="og:url" content="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/index.html">
 <meta property="og:site_name" content="topyx">
-<meta property="og:description" content="0x01 前言遇到了一个关于提权的题目，一开始毫无思路，在大佬的提示下知道了使用SUID进行提权操作">
+<meta property="og:description" content="0x01 前言因为使用SS有时候科学上网还是速度很慢，从大佬处了解到一个神器kcptun，kcptun是一个使用可信UDP来加速TCP传输速度的网络软件。 我们知道TCP协议是可信的数据流传输协议。简单来说，如果数据传输过程中发生了丢包，TCP协议会重新发送相应数据包，如果数据包到达顺序与发送顺序不一致，TCP协议会进行数据包重组，即：TCP协议可以通过控制帧来保证数据流的传输顺序和正确性。但TC">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://yx568481693.github.io/2017/11/25/linuxSUID提权/e1.png">
-<meta property="og:image" content="https://yx568481693.github.io/2017/11/25/linuxSUID提权/e2.png">
-<meta property="og:image" content="https://yx568481693.github.io/2017/11/25/linuxSUID提权/e3.png">
-<meta property="og:updated_time" content="2018-03-05T12:01:50.337Z">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/e1.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/e2.png">
+<meta property="og:image" content="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/e3.png">
+<meta property="og:updated_time" content="2018-03-26T09:44:52.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linuxSUID提权">
-<meta name="twitter:description" content="0x01 前言遇到了一个关于提权的题目，一开始毫无思路，在大佬的提示下知道了使用SUID进行提权操作">
-<meta name="twitter:image" content="https://yx568481693.github.io/2017/11/25/linuxSUID提权/e1.png">
+<meta name="twitter:title" content="Ubuntu下安装Kcptun">
+<meta name="twitter:description" content="0x01 前言因为使用SS有时候科学上网还是速度很慢，从大佬处了解到一个神器kcptun，kcptun是一个使用可信UDP来加速TCP传输速度的网络软件。 我们知道TCP协议是可信的数据流传输协议。简单来说，如果数据传输过程中发生了丢包，TCP协议会重新发送相应数据包，如果数据包到达顺序与发送顺序不一致，TCP协议会进行数据包重组，即：TCP协议可以通过控制帧来保证数据流的传输顺序和正确性。但TC">
+<meta name="twitter:image" content="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/e1.png">
 
 
 
@@ -137,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://yx568481693.github.io/2017/11/25/linuxSUID提权/"/>
+  <link rel="canonical" href="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/"/>
 
 
 
 
 
-  <title>linuxSUID提权 | topyx</title>
+  <title>Ubuntu下安装Kcptun | topyx</title>
   
 
 
@@ -270,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yx568481693.github.io/2017/11/25/linuxSUID提权/">
+    <link itemprop="mainEntityOfPage" href="https://yx568481693.github.io/2018/03/26/Ubuntu下安装Kcptun/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="topyx">
@@ -287,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linuxSUID提权</h1>
+          <h1 class="post-title" itemprop="name headline">Ubuntu下安装Kcptun</h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T22:01:39-08:00">
-                2017-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T02:01:17-07:00">
+                2018-03-26
               </time>
             
 
@@ -337,12 +337,20 @@
       
 
       
-        <h1 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h1><p>遇到了一个关于提权的题目，一开始毫无思路，在大佬的提示下知道了使用SUID进行提权操作<br><a id="more"></a></p>
-<h1 id="0x02-SUID介绍"><a href="#0x02-SUID介绍" class="headerlink" title="0x02 SUID介绍"></a>0x02 SUID介绍</h1><p>SUID（设置用户ID）是赋予文件的一种权限，它会出现在文件拥有者权限的执行位上，具有这种权限的文件会在其执行时，使调用者暂时获得该文件拥有者的权限。那么，为什么要给Linux二进制文件设置这种权限呢？其实原因有很多，例如，程序ping需要root权限才能打开网络套接字，但执行该程序的用户通常都是由普通用户，来验证与其他主机的连通性。</p>
-<p>但是，如果某些现有的二进制文件和实用程序具有SUID权限的话，就可以在执行时将权限提升为root。</p>
-<h1 id="0x03-题目介绍"><a href="#0x03-题目介绍" class="headerlink" title="0x03 题目介绍"></a>0x03 题目介绍</h1><p><img src="e1.png" alt="p1"><br>首先看到ch11这个文件是具有SUID权限的，而ch11是由ch11.c编译而来，而功能具体如下<br><img src="e2.png" alt="p2"><br>题目要求是去读取.passwd里面的内容，然而通过app-script-ch11这个用户是不能读取的，这时候就需要借用ch11的suid权限</p>
-<h2 id="具体思路"><a href="#具体思路" class="headerlink" title="具体思路"></a>具体思路</h2><p>ch11中的ls命令依靠于环境变量path，首先，建立软连接 ln -s /bin/cat /tmp/ls，这样建立了cat命令和ls的软连接，然后修改环境变量path，export path=”/tmp/“，这样就可以利用ls来执行cat的操作，达到了权限提升的目的。</p>
-<h2 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h2><p><img src="e3.png" alt="p3"><br>PS:这里由于服务器的安全策略问题，导致/tmp目录的权限出现一定问题，所以就在只能修改环境变量，进行操作</p>
+        <h1 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h1><p>因为使用SS有时候科学上网还是速度很慢，从大佬处了解到一个神器kcptun，kcptun是一个使用可信UDP来加速TCP传输速度的网络软件。 我们知道TCP协议是可信的数据流传输协议。简单来说，如果数据传输过程中发生了丢包，TCP协议会重新发送相应数据包，如果数据包到达顺序与发送顺序不一致，TCP协议会进行数据包重组，即：TCP协议可以通过控制帧来保证数据流的传输顺序和正确性。但TCP协议的控制机制比较复杂，在线路质量差导致丢包率极高时，传输效率就会指数级下降。</p>
+<p>UDP协议是数据报协议，由于比TCP简单得多，传输效率和延迟率都要优于TCP协议，但UDP协议不是可信传输协议，不能保证数据正确与可达，所以只能应用在一些对单个数据包的正确与可达不是要求很严格（比如：IM）、但对数据传输延迟率有很高要求（比如：视频流或者多人在线游戏）的场合。</p>
+<p>那么，有没有一种传输协议既可信又能保证传输效率呢？这就是R-UDP：可信UDP协议，一种在UDP协议基础上增加了部分TCP的控制逻辑来保证数据正确完整的协议。目前已经有很多可用库（rUDP、enet等等），虽然没有成为像TCP/UDP这样的标准协议，但已经广泛运用到了大型多人在线游戏等领域。KCPTun就是利用这种可信UDP（KCP over UDP），来大幅加速TCP传输效率的。<br><a id="more"></a><br><img src="e1.png" alt="图一"><br>KCPTun官方性能实测值：从68Kbps提高到31Mbps，飞一般的感受！ </p>
+<h1 id="0x02-服务端安装"><a href="#0x02-服务端安装" class="headerlink" title="0x02 服务端安装"></a>0x02 服务端安装</h1><p>首先需要安装好SS，然后再安装Kcptun<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/kuoruan/shell-scripts/raw/master/kcptun/kcptun.sh</div><div class="line">chmod +x ./kcptun.sh</div><div class="line">./kcptun.sh</div></pre></td></tr></table></figure></p>
+<h2 id="设置kcptun的服务端"><a href="#设置kcptun的服务端" class="headerlink" title="设置kcptun的服务端"></a>设置kcptun的服务端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">请输入 Kcptun 服务端运行端口 [1~65535]</div><div class="line">这个端口就是 Kcptun 客户端连接的端口</div><div class="line">(默认: 29900): </div><div class="line">---------------------------</div><div class="line">端口 = 29900</div></pre></td></tr></table></figure>
+<p>设置加速的IP,可以设置为服务器的IP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">请输入需要加速的地址</div><div class="line">可以输入主机名称、IPv4 地址或者 IPv6 地址</div><div class="line">(默认: 127.0.0.1): </div></pre></td></tr></table></figure>
+<p>设置SS在服务端所用的端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">请输入需要加速的端口 [1~65535]</div><div class="line">(默认: 12984):</div></pre></td></tr></table></figure><br>设置kcptun密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">请设置 Kcptun 密码(key)</div><div class="line">该参数必须两端一致</div><div class="line">(默认密码: very fast): 123456</div><div class="line"></div></pre></td></tr></table></figure><br>选择加密方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">请选择加密方式(crypt)</div><div class="line">强加密对 CPU 要求较高，</div><div class="line">如果是在路由器上配置客户端，</div><div class="line">请尽量选择弱加密或者不加密。</div><div class="line">该参数必须两端一致</div><div class="line">(1) aes</div><div class="line">(2) aes-128</div><div class="line">(3) aes-192</div><div class="line">(4) salsa20</div><div class="line">(5) blowfish</div><div class="line">(6) twofish</div><div class="line">(7) cast5</div><div class="line">(8) 3des</div><div class="line">(9) tea</div><div class="line">(10) xtea</div><div class="line">(11) xor</div><div class="line">(12) none</div><div class="line">(默认: aes) 请选择 [1~12]: </div></pre></td></tr></table></figure>
+<p>接下来的过程都可以使用默认配置</p>
+<p>服务端安装完成<br><img src="e2.png" alt="图二"></p>
+<h1 id="0x03-客户端安装"><a href="#0x03-客户端安装" class="headerlink" title="0x03 客户端安装"></a>0x03 客户端安装</h1><p>GUI界面<br><a href="https://github.com/dfdragon/kcptun_gclient/releases/download/v1.1.3/kcptun_gclientv.1.1.3.zip" target="_blank" rel="external">https://github.com/dfdragon/kcptun_gclient/releases/download/v1.1.3/kcptun_gclientv.1.1.3.zip</a><br>客户端<br><a href="https://github.com/xtaci/kcptun/releases/download/v20180316/kcptun-windows-386-20180316.tar.gz" target="_blank" rel="external">https://github.com/xtaci/kcptun/releases/download/v20180316/kcptun-windows-386-20180316.tar.gz</a></p>
+<p><img src="e3.png" alt="图三"></p>
+<p>1.首先点击添加<br>2.点击浏览按钮，找到解压好的KCPTun客户端可执行文件<br>3.配置你所设置的内容<br>4.点击启动</p>
 
       
     </div>
@@ -367,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/06/php代码审计（一）/" rel="next" title="php代码审计（一）">
-                <i class="fa fa-chevron-left"></i> php代码审计（一）
+              <a href="/2018/03/05/Pragyan-CTF两道web的WP/" rel="next" title="Pragyan CTF两道web的WP">
+                <i class="fa fa-chevron-left"></i> Pragyan CTF两道web的WP
               </a>
             
           </div>
@@ -376,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/14/浅析SSTI实例/" rel="prev" title="浅析SSTI实例">
-                浅析SSTI实例 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-SUID介绍"><span class="nav-number">2.</span> <span class="nav-text">0x02 SUID介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-题目介绍"><span class="nav-number">3.</span> <span class="nav-text">0x03 题目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体思路"><span class="nav-number">3.1.</span> <span class="nav-text">具体思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际操作"><span class="nav-number">3.2.</span> <span class="nav-text">实际操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-服务端安装"><span class="nav-number">2.</span> <span class="nav-text">0x02 服务端安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置kcptun的服务端"><span class="nav-number">2.1.</span> <span class="nav-text">设置kcptun的服务端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-客户端安装"><span class="nav-number">3.</span> <span class="nav-text">0x03 客户端安装</span></a></li></ol></div>
             
 
           </div>
